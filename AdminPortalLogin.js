@@ -1,12 +1,10 @@
-var connection = require("./MongoConnection.js");
+var dbconnection = require('./MongoConnection.js');
+//var validator = require('./validation.js');
+var mongoose = require('mongoose');
 
-var express = require('express');
-var app = express();
-
-app.get('/', function (req, res) {
-    res.send('Hello World!');
-});
-
-app.listen(3000, function () {
-    console.log('Example app listening on port 3000!');
-});
+//var theusers = require('user.js');
+var theapp = require('app.js');
+//var User  = mongoose.model('users');
+//var crypto    = require('crypto'), hmac, signature;
+//const { check, validationResult } = require('express-validator/check');
+//const { matchedData, sanitize }   = require('express-validator/filter');

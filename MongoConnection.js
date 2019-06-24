@@ -1,10 +1,31 @@
-var express = require('express');
-var app = express();
-const mongoose = require('mongoose');
-var configDB = require('./config/database.js');
+var mongoose = require('mongoose');
+
 mongoose.connect('mongodb://localhost:27017/users', {useNewUrlParser: true});
-var db = mongoose.connection;
-db.on('error', console.error.bind(console, 'connection error:'));
-db.once('open', function() {
-    // we're connected!
+
+console.log("connected");
+//var UserSchema = mongoose.Schema;
+
+var validateEmail = function(email){
+    var re = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+
+    return re.test(email)
+};
+
+var UserSchema = new mongoose.Schema({
+    fname: { type: String,  required: [true, 'Full name must be provided'] },
+    email: {
+
+        type: String,
+        Required: 'Email address cannot be left blank.',
+
+        validate: [validateEmail, 'Please fill a valid email address'],
+        match: [/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/, 'Please fill a valid email address'],
+        index: {unique: true, dropDups: true}
+    },
+
+
+    password: { type: String , required: [true,  'Password cannot be left blank']},
+
 });
+
+module.exports = mongoose.model('users', UserSchema);
