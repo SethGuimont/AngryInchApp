@@ -1,6 +1,6 @@
 var mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost:27017/users', {useNewUrlParser: true});
-console.log("connected");
+console.log("connected to local mongo server");
 //var UserSchema = mongoose.Schema;
 
 /*var validateEmail = function(email){
