@@ -1,11 +1,9 @@
 var mongoose = require('mongoose');
-
 mongoose.connect('mongodb://localhost:27017/users', {useNewUrlParser: true});
-
 console.log("connected");
 //var UserSchema = mongoose.Schema;
 
-var validateEmail = function(email){
+/*var validateEmail = function(email){
     var re = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 
     return re.test(email)
@@ -28,4 +26,4 @@ var UserSchema = new mongoose.Schema({
 
 });
 
-module.exports = mongoose.model('users', UserSchema);
+module.exports = mongoose.model('users', UserSchema);*/
