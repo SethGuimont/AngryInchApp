@@ -24,7 +24,7 @@
     "express-validator": "^6.0.1",
     "http-server": "^0.11.1",
     "mongodb": "^3.2.7",
-    "mongoose": "^5.6.0"
+    "mongoose": "^5.6.3"
   },
   "devDependencies": {
     "curl": "^0.1.4",
