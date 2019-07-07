@@ -26,6 +26,8 @@ var UserSchema = new mongoose.Schema({
 
     password: { type: String , required: [true,  'Password cannot be left blank']},
 
+    fourDigitCode: {type: String, required: [true, 'Four digit code is required for events']}
+
 });
 
 module.exports = mongoose.model('users', UserSchema);
