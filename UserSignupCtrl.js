@@ -5,14 +5,10 @@ mongoose.connect('mongodb+srv://Admin:admin1234@cluster0-arz1z.mongodb.net/test?
 
 var UserSchema = mongoose.Schema;
 
-var validateEmail = function(email){
-    var re = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 
-    return re.test(email)
-};
 
 var UserSchema = new mongoose.Schema({
-    fname: { type: String,  required: [true, 'Full name must be provided'] },
+    firstName: { type: String,  required: [true, 'Full name must be provided'] },
     email: {
 
         type: String,
@@ -30,4 +26,33 @@ var UserSchema = new mongoose.Schema({
 
 });
 
-module.exports = mongoose.model('users', UserSchema);
+var User = mongoose.model('users', UserSchema);
+
+function validateUser(firstName, email, passsword, fourDigitCode) {
+    if(firstname != null && validateEmail(email) == true && password != null && fourDigitCode != null){
+        return true
+    }
+    return false;
+}
+var validateEmail = function(email){
+    var re = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+
+    return re.test(email)
+};
+
+function userSignup(firstName, email, passsword, fourDigitCode){
+
+    if(validateUser(firstName, email, passsword, fourDigitCode)) {
+        var newUser = new User({firstName: firstName, email: email, password: passsword, fourDigitCode: fourDigitCode})
+        newUser.save(function (err, newUser){
+            if(err) return console.error(err);
+        })
+    }
+}
+
+export function findUser(fourDigitCode) {
+    users.findOne({'fourDigitCode': fourDigitCode}, 'fourDigitCode', function (err, users) {
+        if(err) return false;
+        return true;
+    })
+}

@@ -1,5 +1,5 @@
 
-function generateCodes(fourDigitCode, requestedAmount){
+export function generateCodes(fourDigitCode, requestedAmount){
     var codeArray = [];
 
     for(var i = 0; i < requestedAmount; i++){
