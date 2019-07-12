@@ -1,3 +1,8 @@
+// CreateEvent.js
+// Authored by Nathan Bishop
+// not in use as of 7/11/2019, place holder for future improvements
+
+
 import {generateCodes} from "./GenerateCodesCtrl";
 
 var mongoserv = require('./MongoConnection.js')

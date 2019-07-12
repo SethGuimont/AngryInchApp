@@ -1,3 +1,6 @@
+// MongoConnection.js
+// Authored by Seth Guimont, edits by Nathan Bishop
+
 // Code directly below is for testing with hosted mongo db
 
 /*

@@ -1,4 +1,7 @@
-const express = require('express');
+// app.js
+// Authored by Seth Guimont possible future use
+
+/*const express = require('express');
 const path = require('path');
 const routes = require('./routes/AdminPortalLogin.js');
 
@@ -16,4 +19,4 @@ module.exports = app;
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use('/', routes);
 
-module.exports = app;
+module.exports = app;*/
