@@ -44,7 +44,7 @@ http.createServer(function (request, response) {
             // Output a green line to the console explaining what folder was requested
             console.log(GRN + 'FLDR: ' + WHT + filename);
             // redirect the user to the index.html in the requested folder
-            filename += 'index.html';
+            filename += '';
         }
 
         // Assuming the file exists, read it
@@ -80,4 +80,4 @@ http.createServer(function (request, response) {
 }).listen(parseInt(port, 10));
 
 // Message to display when server is started
-console.log(WHT + 'Static file server running at\n  => http://localhost:' + port + '/\nCTRL + C to shutdown');
+console.log(WHT + 'Static file server running at\n  => http://localhost:' + port + '/\nCTRL + C to shutdown');44
