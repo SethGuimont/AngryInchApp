@@ -1,4 +1,5 @@
-
+// GenerateCodesCtrl.js
+// Authored by Nathan Bishop
 export function generateCodes(fourDigitCode, requestedAmount){
     var codeArray = [];
 

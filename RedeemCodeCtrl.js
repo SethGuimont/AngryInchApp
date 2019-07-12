@@ -1,3 +1,6 @@
+// RedeemCodeCtrl.js
+// Authored by Nathan Bishop
+
 var mongoserv = require('./MongoConnection.js')
 var mongoose = require('mongoose');
 
