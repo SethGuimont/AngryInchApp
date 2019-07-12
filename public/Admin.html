@@ -8,7 +8,7 @@
     Document Title
     =============================================
     -->
-    <title>Party Code Generator Home Page</title>
+    <title>Admin Portal Login</title>
     <!--  
     Favicons
     =============================================
@@ -52,6 +52,9 @@
     <!-- Main stylesheet and color file-->
     <link href="assets/css/style.css" rel="stylesheet">
     <link id="color-scheme" href="assets/css/colors/default.css" rel="stylesheet">
+
+    <!-- test javascript login controller-->
+    <script src = "../routes/AdminPortalLogin.js"></script>
   </head>
   <body data-spy="scroll" data-target=".onpage-navigation" data-offset="60">
     <main>
@@ -61,41 +64,26 @@
       <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
         <div class="container">
           <div class="navbar-header">
-            <span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a class="navbar-brand" href="index.html">The Blue Sky Group</a>
+            <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#custom-collapse"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a class="navbar-brand" href="index.html">The Blue Sky Group</a>
           </div>
           <div class="collapse navbar-collapse" id="custom-collapse">
             <ul class="nav navbar-nav navbar-right">
-              <li><a href="index.html">Home</a></li>
-              <li><a href="Codes.html">Codes</a></li>
-              <li><a href="Admin.html">Admin</a></li>
-              <li><a href="About.html">About</a></li>
-              <li><a href="#">Lorem</a></li>
-              <li><a href="#">Ipsum</a></li>
-              <li><a href="#">Lorem</a></li>
-     
-         
+              <li class="dropdown"><a href="index.html">Home</a></li>
+              <li class="dropdown"><a href="Codes.html">Codes</a></li>
+              <li class="dropdown"><a href="Admin.html">Admin</a></li>
+			  <li class="dropdown"><a href="About.html">About</a></li>
             </ul>
           </div>
         </div>
-      </nav>
-      <section class="bg-dark-30 showcase-page-header module parallax-bg" data-background="assets/images/balloons.jpg">
-        <div class="titan-caption">
-          <div class="caption-content">
-            <div class="font-alt mb-30 titan-title-size-1">Style, Class, Fun</div>
-            <div class="font-alt mb-40 titan-title-size-4">Party Code Generator</div>
-          </div>
         </div>
-      </section>
-      <div class="main showcase-page">
-        <section class="module-extra-small bg-dark">
+      </nav>
+
+      <div class="main">
+        <section class="module bg-dark-30" data-background="assets/images/nightconcert.jpg">
           <div class="container">
             <div class="row">
-              <div class="col-sm-6 col-md-8 col-lg-9">
-                <div class="callout-text font-alt">
-                  
-              </div>
-              <div class="col-sm-6 col-md-4 col-lg-3">
-                
+              <div class="col-sm-6 col-sm-offset-3">
+                <h1 class="module-title font-alt mb-0">Admin Portal Login</h1>
               </div>
             </div>
           </div>
@@ -103,21 +91,52 @@
         <section class="module">
           <div class="container">
             <div class="row">
-              <div class="col-sm-8 col-sm-offset-2">
-                <h4 class="font-alt mb-0">Enter Your Party Code</h4>
-                <hr class="divider-w mt-10 mb-20">
-                <form class="form" role="form">
+              <div class="col-sm-5 col-sm-offset-1 mb-sm-40">
+                <h4 class="font-alt">Login</h4>
+                <hr class="divider-w mb-10">
+                <form class="form" form id = "form_id" method="post" name = "myform">
                   <div class="form-group">
-                    <input class="form-control input-lg" type="text" placeholder="Enter Your Code"/>
+                    <input class="form-control" id="username" type="text" name="username" placeholder="Username"/>
                   </div>
                   <div class="form-group">
-                    <input class="form-control input-lg" type="text" placeholder="Enter Your Email Address"/>
+                    <input class="form-control" id="password" type="password" name="password" placeholder="Password"/>
+                  </div>
+                  <div class="form-group">
+                    <!-- <a href="AdminPortal.html" button class="btn btn-round btn-b">Login</button></a>-->
+                    <button class="btn btn-round btn-b" input type="button" value="Login" id="submit" onclick="validate()"/>Login</button>
+                  </div>
+                  <div class="form-group"><a href="">Forgot Password?</a></div>
+                </form>
+              </div>
+              <div class="col-sm-5">
+                <h4 class="font-alt">Register</h4>
+                <hr class="divider-w mb-10">
+                <form class="form">
+                  <div class="form-group">
+                    <input class="form-control" id="E-mail" type="text" name="email" placeholder="Email"/>
+                  </div>
+                  <div class="form-group">
+                    <input class="form-control" id="username" type="text" name="username" placeholder="Username"/>
+                  </div>
+                  <div class="form-group">
+                    <input class="form-control" id="password" type="password" name="password" placeholder="Password"/>
+                  </div>
+                  <div class="form-group">
+                    <input class="form-control" id="re-password" type="password" name="re-password" placeholder="Re-enter Password"/>
+                  </div>
+                  <div class="form-group">
+                    <input class="form-control" id="four-digit-code" type="text" name="four-digit-code" placeholder="Four Digit Code"/>
+                  </div>
+                  <div class="form-group">
+                    <button class="btn btn-block btn-round btn-b">Register</button>
+                  </div>
+                </form>
+              </div>
             </div>
           </div>
         </section>
-            </div>
-          </div>
-    <hr class="divider-d">
+        
+   <hr class="divider-d">
         <footer class="footer bg-dark">
           <div class="container">
             <div class="row">

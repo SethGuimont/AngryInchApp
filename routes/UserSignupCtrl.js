@@ -1,4 +1,6 @@
-var mongoserv = require('./MongoConnection.js')
+// This class is not used yet as of 7/11/2019
+
+/*var mongoserv = require('./MongoConnection.js')
 var mongoose = require('mongoose');
 
 mongoose.connect('mongodb+srv://Admin:admin1234@cluster0-arz1z.mongodb.net/test?retryWrites=true&w=majority', {useNewUrlParser: true});
@@ -55,4 +57,4 @@ export function findUser(fourDigitCode) {
         if(err) return false;
         return true;
     })
-}
+}*/
