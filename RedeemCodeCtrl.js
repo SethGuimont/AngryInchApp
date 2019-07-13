@@ -1,5 +1,6 @@
 // RedeemCodeCtrl.js
 // Authored by Nathan Bishop
+// Not in use for iteration two 7/11/2019
 
 var mongoserv = require('./MongoConnection.js')
 var mongoose = require('mongoose');

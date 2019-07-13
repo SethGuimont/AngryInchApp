@@ -1,5 +1,5 @@
 // app.js
-// Authored by Seth Guimont possible future use
+// Authored by Seth Guimont possible future use, 7/11/2019
 
 /*const express = require('express');
 const path = require('path');
