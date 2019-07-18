@@ -5,9 +5,9 @@
 
 import {generateCodes} from "./GenerateCodesCtrl";
 
-var mongoserv = require('./MongoConnection.js')
+var mongoserv = require('../MongoConnection.js')
 var mongoose = require('mongoose');
-var userSignUpCtrl = require('./routes/UserSignupCtrl')
+var userSignUpCtrl = require('./UserSignupCtrl')
 var userSignupCtrl = new userSignUpCtrl;
 
 mongoose.connect('mongodb+srv://Admin:admin1234@cluster0-arz1z.mongodb.net/test?retryWrites=true&w=majority', {useNewUrlParser: true});
