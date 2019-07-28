@@ -34,4 +34,12 @@ router.post('/events', function(req, res) {
     return res.redirect('users.html')
 });
 
+router.post('/index', function(req, res){
+    console.log(req.body);
+    var fourDigitCode = req.body.fourDigitCode;
+    var lastFourDigits = req.body.lastFourDigits;
+
+    Code.findOne({fourDigitCode: fourDigitCode, lastFourDigits: lastFourDigits})
+});
+
 module.exports = router;
