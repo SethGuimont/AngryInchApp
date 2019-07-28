@@ -31,6 +31,7 @@
     <!-- Main stylesheet and color file-->
     <link href="assets/css/style.css" rel="stylesheet">
     <link id="color-scheme" href="assets/css/colors/default.css" rel="stylesheet">
+    <script src = "../controllers/UserSignupCtrl.js"></script>
   </head>
   <body data-spy="scroll" data-target=".onpage-navigation" data-offset="60">
     <main>
@@ -75,49 +76,48 @@
         </section>
         <section class="module">
           <div class="container">
-            <form class="row">
-                <h4 class="font-alt mb-0">Create a New User</h4>
-                <hr class="divider-w mt-10 mb-20">
-                <form class="form" role="form">
-                    <div class="form-group">
-                        <input class="form-control input-lg" type="text" placeholder="Add User"/>
-                    </div>
-                    <div class="form-group">
-                        <input class="form-control input-lg" type="text" placeholder="Add User Email Address"/>
-                    </div>
-                    <div class="form-group">
-                        <input class="form-control input-lg" type="text" placeholder="Create User Password "/>
-                    </div>
-                    <div class="form-group">
-                        <input class="form-control input-lg" type="text" placeholder="Users Full Name"/>
-                    </div>
-                    <div class="form-group">
-                        <input class="form-control input-lg" type="text" placeholder="User Company Or Company Code"/>
-                    </div>
-                  <div class="form-group">
-                    <button class="btn btn-block btn-round btn-b">Register</button>
-                  </div>
-
-                </form>
+            <form class="row" method="post" action="/users">
+              <h4 class="font-alt mb-0">Create a New User</h4>
+              <hr class="divider-w mt-10 mb-20">
+              <form class="form" role="form">
+                <div class="form-group">
+                  <input class="form-control input-lg" name="username" type="text" id="Username" placeholder="Add User"/>
+                </div>
+                <div class="form-group">
+                  <input class="form-control input-lg" name="email" type="text" id="Email" placeholder="Add User Email Address"/>
+                </div>
+                <div class="form-group">
+                  <input class="form-control input-lg" name="password" type="text" id="Password" placeholder="Create User Password "/>
+                </div>
+                <div class="form-group">
+                  <input class="form-control input-lg" type="text" id="Name" placeholder="Users Full Name"/>
+                </div>
+                <div class="form-group">
+                  <input class="form-control input-lg" name="fourDigitCode" type="text" id="CompanyCode" placeholder="User Company Or Company Code"/>
+                </div>
+                <div class="form-group">
+                  <button class="btn btn-round btn-b" input type="submit" value="Login" id="submit" onclick="">Sign Up</button>
+                </div>
+              </form>
             </form>
           </div>
         </section>
+      </div>
+      </div>
+      <hr class="divider-d">
+      <footer class="footer bg-dark">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-6">
+              <p class="copyright font-alt">&copy; 2019&nbsp;<a href="index.html">The Blue Sky Group</a>, All Rights Reserved</p>
+            </div>
+            <div class="col-sm-6">
+              <div class="footer-social-links"><a href="#"><i class="fa fa-facebook"></i></a><a href="#"><i class="fa fa-twitter"></i></a><a href="#"><i class="fa fa-dribbble"></i></a><a href="#"><i class="fa fa-skype"></i></a>
+              </div>
             </div>
           </div>
-    <hr class="divider-d">
-        <footer class="footer bg-dark">
-          <div class="container">
-            <div class="row">
-              <div class="col-sm-6">
-                <p class="copyright font-alt">&copy; 2019&nbsp;<a href="index.html">The Blue Sky Group</a>, All Rights Reserved</p>
-              </div>
-              <div class="col-sm-6">
-                <div class="footer-social-links"><a href="#"><i class="fa fa-facebook"></i></a><a href="#"><i class="fa fa-twitter"></i></a><a href="#"><i class="fa fa-dribbble"></i></a><a href="#"><i class="fa fa-skype"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </footer>
+        </div>
+      </footer>
       </div>
       <div class="scroll-up"><a href="#totop"><i class="fa fa-angle-double-up"></i></a></div>
     </main>
