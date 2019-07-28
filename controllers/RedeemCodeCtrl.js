@@ -1,14 +1,13 @@
 // RedeemCodeCtrl.js
 // Authored by Nathan Bishop
-// Not in use for iteration two 7/11/2019
 
-//var mongoserv = require('./MongoConnection.js')
-//var mongoose = require('mongoose');
+var mongoserv = require('./DB.js')
+var mongoose = require('mongoose');
 
-//mongoose.connect('mongodb+srv://Admin:admin1234@cluster0-arz1z.mongodb.net/test?retryWrites=true&w=majority', {useNewUrlParser: true});
+mongoose.connect('mongodb+srv://Admin:admin1234@cluster0-arz1z.mongodb.net/test?retryWrites=true&w=majority', {useNewUrlParser: true});
 
 
-// Seth Guimont
+/* Seth Guimont
 // This code below is to simply test referencing the javascript in the html file
 // This will be commented out as we add returning Users from Mongodb
 var attempt = 100; // Variable to count number of attempts.
@@ -32,5 +31,5 @@ function validate(){
             return false;
         }
     }
-}
+}*/
 

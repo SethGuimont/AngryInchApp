@@ -3,11 +3,12 @@
 // not in use as of 7/11/2019, place holder for future improvements
 
 
+
 import {generateCodes} from "./GenerateCodesCtrl";
 
-var mongoserv = require('../MongoConnection.js')
+var mongoserv = require('./DB.js')
 var mongoose = require('mongoose');
-var userSignUpCtrl = require('./UserSignupCtrl')
+var userSignUpCtrl = require('./routes/UserSignupCtrl')
 var userSignupCtrl = new userSignUpCtrl;
 
 mongoose.connect('mongodb+srv://Admin:admin1234@cluster0-arz1z.mongodb.net/test?retryWrites=true&w=majority', {useNewUrlParser: true});
