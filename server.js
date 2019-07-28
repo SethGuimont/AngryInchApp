@@ -5,7 +5,7 @@
 // Put this next to the files you want to serve and run: node server.js
 
 // Require in some of the native stuff that comes with Node
-var http = require('http');
+/*var http = require('http');
 var url = require('url');
 var path = require('path');
 var fs = require('fs');
@@ -82,4 +82,33 @@ http.createServer(function (request, response) {
 }).listen(parseInt(port, 10));
 
 // Message to display when server is started
-console.log(WHT + 'Static file server running at\n  => http://localhost:' + port + '/\nCTRL + C to shutdown');44
+console.log(WHT + 'Static file server running at\n  => http://localhost:' + port + '/\nCTRL + C to shutdown');44*/
+
+require('./models/DB');
+//load express and start app
+const express = require('express');
+const userSignupControl = require('./controllers/UserSignupCtrl');
+const path = require('path');
+const bodyParser = require('body-parser');
+
+var app = express();
+app.use(bodyParser.json());
+app.use(express.static(path.join(__dirname + '/public/')));
+app.listen(3000, () => {
+    console.log('Express server started at port :3000')
+});
+
+app.get('/', function(req, res) {
+    res.sendFile(path.join(__dirname + '/public/index.html'));
+});
+
+app.post('/users', function(req, res) {
+    console.log(req.body);
+    var username = req.body.username;
+    var password = req.body.password;
+    var email = req.body.email;
+    var fourDigitCode = req.body.fourDigitCode;
+
+    console.log("US: " + username + " pass: " + password + " email: " + email + " four dig: " + fourDigitCode);
+    return res.status(200).send();
+});
