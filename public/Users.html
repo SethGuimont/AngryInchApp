@@ -75,24 +75,24 @@
         </section>
         <section class="module">
           <div class="container">
-            <form class="row">
+            <form class="row" action="/users" method="post">
                 <h4 class="font-alt mb-0">Create a New User</h4>
                 <hr class="divider-w mt-10 mb-20">
                 <form class="form" role="form">
                     <div class="form-group">
-                        <input class="form-control input-lg" type="text" placeholder="Add User"/>
+                        <input class="form-control input-lg" name="username" type="text" placeholder="Add User"/>
                     </div>
                     <div class="form-group">
-                        <input class="form-control input-lg" type="text" placeholder="Add User Email Address"/>
+                        <input class="form-control input-lg" name="email" type="text" placeholder="Add User Email Address"/>
                     </div>
                     <div class="form-group">
-                        <input class="form-control input-lg" type="text" placeholder="Create User Password "/>
+                        <input class="form-control input-lg" name="password" type="text" placeholder="Create User Password "/>
                     </div>
                     <div class="form-group">
-                        <input class="form-control input-lg" type="text" placeholder="Users Full Name"/>
+                        <input class="form-control input-lg" name="confirmPW" type="text" placeholder="Confirm Password"/>
                     </div>
                     <div class="form-group">
-                        <input class="form-control input-lg" type="text" placeholder="User Company Or Company Code"/>
+                        <input class="form-control input-lg" name="fourDigitCode" type="text" placeholder="User Company Or Company Code"/>
                     </div>
                   <div class="form-group">
                     <button class="btn btn-block btn-round btn-b">Register</button>
