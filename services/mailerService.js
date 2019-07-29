@@ -1,24 +1,11 @@
 var nodemailer = require('nodemailer');
+var express = require('express');
 
 var transporter = nodemailer.createTransport({
-    service: 'gmail',
+    service: 'hotmail',
     auth: {
-        user: 'blueskygroup@gmail.com',
+        user: 'blueskygroupcapstone@hotmail.com',
         pass: 'BlueSky!1'
     }
 });
-
-var mailOptions = {
-    from: 'blueskygroup@gmail.com',
-    to: 'UsersEmail@yahoo.com',
-    subject: 'Sending Email using Node.js',
-    text: 'That was easy!'
-};
-
-transporter.sendMail(mailOptions, function(error, info){
-    if (error) {
-        console.log(error);
-    } else {
-        console.log('Email sent: ' + info.response);
-    }
-});
+module.exports = transporter;
