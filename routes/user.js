@@ -67,6 +67,31 @@ router.post('/redeem', function(req, res){
         });
     });
 
+router.post('/support', function(req, res){
+    console.log(req.body);
+    userEmail = req.body.SupportEmail;
+    eventName = req.body.EventName;
+    userText = userEmail + "                " + eventName + "                " + req.body.IssueBody;
+
+
+    var mailOptions = {
+        from: 'blueskygroupcapstone@hotmail.com',
+        to: 'blueskygroupcapstone@hotmail.com',
+        subject: 'Support Request',
+        text: userText
+    };
+
+    emailService.sendMail(mailOptions, function(error, info){
+        if (error) {
+            console.log(error);
+            res.redirect('ErrorCode.html');
+        } else {
+            res.redirect('SupportSuccessCode.html');
+            console.log('Email sent: ' + info.response);
+        }
+    });
+});
+
 function getCode(code){
     var query = Code.findOne({fullCode: code});
     return query;

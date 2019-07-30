@@ -68,29 +68,29 @@
                 <div class="row">
                     <div class="col-sm-6">
                         <h4 class="font-alt">Tell us how we can help</h4><br/>
-                        <form id="SupportForm" role="form" method="post" action="php/contact.php">
-                            <div class="form-group">
-                                <label class="sr-only" for="Name">Name</label>
-                                <input class="form-control" type="text" id="Name" name="EventName" placeholder="Please enter your name" required="required" data-validation-required-message="Please enter your name."/>
-                                <p class="help-block text-danger"></p>
-                            </div>
-                            <div class="form-group">
-                                <label class="sr-only" for="SupportEmail">Email</label>
-                                <input class="form-control" type="email" id="SupportEmail" name="SupportEmail" placeholder="Enter your contact email" required="required" data-validation-required-message="Please enter your email address."/>
-                                <p class="help-block text-danger"></p>
-                            </div>
-                            <div class="form-group">
-                                <textarea class="form-control" rows="7" id="IssueBody" name="IssueBody" placeholder="Describe your issue" required="required" data-validation-required-message=""></textarea>
-                                <p class="help-block text-danger"></p>
-                            </div>
-                            <div class="text-center">
-                                <button class="btn btn-block btn-round btn-d" id="supportSubmit" type="submit">Submit</button>
-                            </div>
+                        <form class="row" action="/support" method="post">
+                            <form class="form" role="form">
+                                <div class="form-group">
+                                    <label class="sr-only" for="Name">Name</label>
+                                    <input class="form-control" type="text" id="Name" name="EventName" placeholder="Please enter your name" required="required" data-validation-required-message="Please enter your name."/>
+                                    <p class="help-block text-danger"></p>
+                                </div>
+                                <div class="form-group">
+                                    <label class="sr-only" for="SupportEmail">Email</label>
+                                    <input class="form-control" type="email" id="SupportEmail" name="SupportEmail" placeholder="Enter your contact email" required="required" data-validation-required-message="Please enter your email address."/>
+                                    <p class="help-block text-danger"></p>
+                                </div>
+                                <div class="form-group">
+                                    <textarea class="form-control" rows="7" id="IssueBody" name="IssueBody" placeholder="Describe your issue" required="required" data-validation-required-message=""></textarea>
+                                    <p class="help-block text-danger"></p>
+                                </div>
+                                <div class="text-center">
+                                    <button class="btn btn-block btn-round btn-d" id="supportSubmit" type="submit">Submit</button>
+                                </div>
+                            </form>
                         </form>
                         <div class="ajax-response font-alt" id="contactFormResponse"></div>
                     </div>
-
-
                 </div>
             </div>
         </section>
