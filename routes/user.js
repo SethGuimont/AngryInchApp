@@ -34,7 +34,7 @@ router.post('/events', function(req, res) {
         if(err) return console.error(err);
     });
 
-    return res.redirect('users.html')
+    return res.redirect('AdminPortal.html')
 });
 
 router.post('/index', function(req, res){
@@ -52,7 +52,10 @@ router.post('/redeem', function(req, res){
 
     var query =  getCode(code);
     query.exec(function(err, code){
-        if(err) return console.log(err);
+        if(err || code.redeemed === true){
+            res.redirect('ErrorCode.html');
+            return console.log(err);
+        }
         var mailOptions = {
             from: 'blueskygroupcapstone@hotmail.com',
             to: email,
@@ -68,6 +71,7 @@ router.post('/redeem', function(req, res){
             });
         code.redeemed = true;
         code.save();
+        res.redirect('Codes.html');
         });
     });
 
