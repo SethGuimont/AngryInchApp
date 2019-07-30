@@ -4,6 +4,7 @@ var mongoose = require('mongoose');
 var User = require('../models/Users');
 var Code = require('../models/Codes');
 var emailService = require('../services/mailerService');
+var codeGeneratorService = require('../services/CodeGeneratorService');
 
 router.post('/users', function(req, res) {
     console.log(req.body);
@@ -23,17 +24,8 @@ router.post('/users', function(req, res) {
 router.post('/events', function(req, res) {
     console.log(req.body);
     var fourDigitCode = req.body.fourDigitCode;
-    var lastFourDigits = 1234;
     var inviteBody = req.body.inviteBody;
-    var fullCode = fourDigitCode + lastFourDigits;
-
-    const newCode = Code({fourDigitCode: fourDigitCode, lastFourDigits: lastFourDigits,
-        inviteBody: inviteBody, redeemed: false, fullCode: fullCode});
-
-    newCode.save(function (err, newCode){
-        if(err) return console.error(err);
-    });
-
+    codeGeneratorService(req.body.numberOfGuests, fourDigitCode, inviteBody);
     return res.redirect('AdminPortal.html')
 });
 
