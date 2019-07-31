@@ -34,7 +34,7 @@
     <link id="color-scheme" href="assets/css/colors/default.css" rel="stylesheet">
 
     <!-- test javascript login controller-->
-    <script src = "../controllers/AdminPortalLogin.js"></script>
+    <script src = "../routes/AdminPortalLogin.js"></script>
   </head>
   <body data-spy="scroll" data-target=".onpage-navigation" data-offset="60">
     <main>
@@ -74,16 +74,17 @@
               <div class="col-sm-8 col-sm-offset-2">
                 <h2 class="font-alt">Login</h2>
                 <hr class="divider-w mb-10">
-                <form class="form" form id = "form_id" method="post" name = "myform">
+                <form class="form" action="/login"  method="post">
                   <div class="form-group">
-                    <input class="form-control" id="username" type="text" name="username" placeholder="Username"/>
+                    <input class="form-control" input type="text" name="username" placeholder="Username"/>
                   </div>
                   <div class="form-group">
-                    <input class="form-control" id="password" type="password" name="password" placeholder="Password"/>
+                    <input class="form-control" type="password" name="password" placeholder="Password"/>
                   </div>
                   <div class="form-group">
                     <!-- <a href="AdminPortal.html" button class="btn btn-round btn-b">Login</button></a>-->
-                    <button class="btn btn-round btn-b" input type="button" value="Login" id="login" onclick="validate()"/>Login</button>
+                    <!-- <button class="btn btn-round btn-b" input type="button" value="Login" id="login" onclick="validate()"/>Login</button>-->
+                    <input type="submit" value="Log In"/>
                   </div>
                   <div class="form-group"><a href="">Forgot Password?</a></div>
                 </form>

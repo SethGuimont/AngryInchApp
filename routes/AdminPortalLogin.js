@@ -59,52 +59,56 @@ router.get('/', (req, res) => {
 module.exports = router;*/
 
 // adding this code to play with later
-
+/*var router = express.Router();
 var mongoose = require("mongoose");
 var passport = require("passport");
 var User = require("../models/User");
+var express = require('express');
+var LocalStrategy = require('passport-local').Strategy
 
-var userController = {};
+app.post('/AdminPortalLogin', passport.authenticate('local'),
+    function(req, res)
+    {
+        // If this function gets called, authentication was successful.
+        // `req.user` contains the authenticated user.
 
-// Restrict access to root page
-userController.home = function(req, res) {
-    res.render('index', { user : req.user });
-};
+        res.redirect('/users/' + req.user.username);
+    });
 
-// Go to registration page
-userController.register = function(req, res) {
-    res.render('register');
-};
+app.post('/AdminPortalLogin',
+    passport.authenticate('local', { successRedirect: 'AdminPortal.html',
+        failureRedirect: '/AdminPortalLogin',
+        failureFlash: true })
+);
+passport.use(new LocalStrategy(
 
-// Post registration
-userController.doRegister = function(req, res) {
-    User.register(new User({ username : req.body.username, name: req.body.name }), req.body.password, function(err, user) {
-        if (err) {
-            return res.render('register', { user : user });
-        }
+    function(username, password, done) {
+        User.findOne({ username: username }, function(err, user) {
+            if (err) { return done(err); }
+            if (!user)
+            {
+                return done(null, false, { message: 'Incorrect username.' });
+            }
 
-        passport.authenticate('local')(req, res, function () {
-            res.redirect('/');
+            if (!user.validPassword(password))
+            {
+
+                return done(null, false, { message: 'Incorrect password.' });
+            }
+            return done(null, false, { message: 'Incorrect password.' });
         });
+    }
+));
+
+passport.serializeUser(function(user, done) {
+    done(null, user.id);
+});
+
+passport.deserializeUser(function(id, done) {
+    User.findById(id, function (err, user) {
+        done(err, user);
     });
-};
+});
 
-// Go to login page
-userController.login = function(req, res) {
-    res.render('login');
-};
 
-// Post login
-userController.doLogin = function(req, res) {
-    passport.authenticate('local')(req, res, function () {
-        res.redirect('/');
-    });
-};
 
-// logout
-userController.logout = function(req, res) {
-    req.logout();
-    res.redirect('/');
-};
-
-module.exports = userController;
