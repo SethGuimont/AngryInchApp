@@ -24,7 +24,7 @@ router.post('/users', function(req, res) {
 router.post('/events', function(req, res) {
     console.log(req.body);
     var fourDigitCode = req.body.fourDigitCode;
-    var inviteBody = req.body.inviteBody;
+    var inviteBody = req.body.EventDescription;
     codeGeneratorService(req.body.NumberOfInvites, fourDigitCode, inviteBody);
     return res.redirect('AdminPortal.html')
 });
