@@ -1,8 +1,8 @@
+var express = require('express');
 var router = express.Router();
 var mongoose = require("mongoose");
 var passport = require("passport");
-var User = require("../models/User");
-var express = require('express');
+//var User = require("../models/User");
 var LocalStrategy = require('passport-local').Strategy
 
 app.post('/login', passport.authenticate('local', { successRedirect: 'AdminPortal.html',
@@ -38,3 +38,5 @@ passport.use(new LocalStrategy(
         });
     }
 ));
+
+module.exports = router;
