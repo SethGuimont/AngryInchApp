@@ -1,4 +1,4 @@
-var User = require('../models/User');
+var User = require('../models/Users');
 
 exports.saveUser = function (username, password, email, fourDigitCode) {
     var newUser = new User();
