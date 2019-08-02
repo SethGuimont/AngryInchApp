@@ -5,7 +5,7 @@ var User = require('../models/Users');
 var Code = require('../models/Codes');
 var emailService = require('../services/mailerService');
 var codeGeneratorService = require('../services/CodeGeneratorService');
-var passport = require('passport')
+var passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
 
 router.post('/users', function(req, res) {
