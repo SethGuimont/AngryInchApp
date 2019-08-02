@@ -67,7 +67,7 @@
         </section>
         <section class="module">
             <div class="container">
-                <div class="row">
+                <form class="row">
                     <div class="col-sm-6">
                         <h4 class="font-alt">Fill Out Invite Details</h4><br/>
                         <form class="row" action="/events" method="post">
@@ -89,6 +89,7 @@
                                 <div class="form-group">
                                     <button class="btn btn-block btn-round btn-b">Register</button>
                                 </div>
+                            </form>
 <!--                        <form id="contactForm" role="form" method="post" action="/events">-->
 <!--                            <div class="form-group">-->
 <!--                                <label class="sr-only" for="EventName">Name Of Event</label>-->
@@ -114,7 +115,8 @@
 <!--                            </div>-->
 <!--                        </form>-->
                         <div class="ajax-response font-alt" id="contactFormResponse"></div>
-                    </div>
+
+                    <form>
                     <div class="col-sm-6">
                         <h4 class="font-alt">Upload PDF</h4><br/>
                         <p>Upload a stylish PDF to send out an exciting invite</p>
@@ -124,8 +126,6 @@
                         <canvas id="pdf-preview" width="150" style="display:none"></canvas>
                     </div>
 
-                </div>
-            </div>
         </section>
         <hr class="divider-d">
         <footer class="footer bg-dark">
@@ -164,3 +164,4 @@ JavaScripts
 <script src="assets/js/main.js"></script>
 </body>
 </html>
+
