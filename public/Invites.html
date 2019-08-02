@@ -71,20 +71,19 @@
                     <div class="col-sm-6">
                         <h4 class="font-alt">Fill Out Invite Details</h4><br/>
                         <form class="row" action="/events" method="post">
-                            <h4 class="font-alt mb-0">Create a New User</h4>
-                            <hr class="divider-w mt-10 mb-20">
                             <form class="form" role="form">
                                 <div class="form-group">
-                                    <input class="form-control input-lg" name="EventName" type="text" placeholder="Event name"/>
+                                    <label class="sr-only" for="EventName">Name Of Event</label>
+                                    <input class="form-control" id="EventName" name="EventName" type="text" placeholder="Event name" required="required" data-validation-required-message="Please enter the events name."/>
                                 </div>
                                 <div class="form-group">
-                                    <input class="form-control input-lg" name="fourDigitCode" type="text" placeholder="Your four digit code"/>
+                                    <input class="form-control" name="fourDigitCode" type="text" placeholder="Your four digit code"/>
                                 </div>
                                 <div class="form-group">
-                                    <input class="form-control input-lg" name="NumberOfInvites" type="text" placeholder="Number of guests"/>
+                                    <input class="form-control" name="NumberOfInvites" type="text" placeholder="Number of guests"/>
                                 </div>
                                 <div class="form-group">
-                                    <input class="form-control input-lg" name="inviteBody" type="text" placeholder="Add your invite body"/>
+                                    <input class="form-control" name="inviteBody" type="text" placeholder="Add your invite body"/>
                                 </div>
                                 <div class="form-group">
                                     <button class="btn btn-block btn-round btn-b">Register</button>
@@ -113,7 +112,9 @@
 <!--                                <button class="btn btn-block btn-round btn-d" id="cfsubmit" type="submit">Submit</button>-->
 <!--                            </div>-->
 <!--                        </form>-->
-                        <div class="ajax-response font-alt" id="contactFormResponse"></div>
+                                 <div class="ajax-response font-alt" id="contactFormResponse"></div>
+                            </form>
+                        </form>
                     </div>
                     <div class="col-sm-6">
                         <h4 class="font-alt">Upload PDF</h4><br/>

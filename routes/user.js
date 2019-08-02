@@ -27,30 +27,31 @@ router.post('/events', function(req, res) {
     console.log(req.body);
     var fourDigitCode = req.body.fourDigitCode;
     var inviteBody = req.body.inviteBody;
-    var codeEmailBody;
+    var codeEmailBody = '';
+    var eventName = req.body.EventName;
     var codeArray = codeGeneratorService(req.body.NumberOfInvites, fourDigitCode, inviteBody);
     for (var i = 0; i < codeArray.length; i++){
-        codeEmailBody = codeArray[i] + '\n' + codeEmailBody;
+        codeEmailBody = codeArray[i] +'\n' + codeEmailBody ;
     }
     var userEmail = getUser(fourDigitCode);
     userEmail.exec(function (err, user) {
-        if(err || code.redeemed === true){
+        if(err){
             res.redirect('ErrorCode.html');
             return console.log(err);
         }
         var mailOptions = {
             from: 'blueskygroupcapstone@hotmail.com',
-            to: User.email,
-            subject: 'Your invited!',
+            to: user.email,
+            subject: 'Your codes for ' + eventName +  '!',
             text: codeEmailBody
         };
         emailService.sendMail(mailOptions, function(error, info){
             if (error) {
                 console.log(error);
-                res.render('ErrorCode')
+                res.redirect('ErrorCode')
             } else {
                 console.log('Email sent: ' + info.response);
-                res.render('Codes')
+                res.redirect('Codes')
             }
         });
     });
@@ -71,9 +72,12 @@ router.post('/redeem', function(req, res){
     var code = req.body.code;
     var email = req.body.email;
 
+    if(code === null || email === null){
+        res.redirect('ErrorCode.html');
+    }
     var query =  getCode(code);
     query.exec(function(err, code){
-        if(err || code.redeemed === true){
+        if(err || code === null || code.redeemed === true){
             res.redirect('ErrorCode.html');
             return console.log(err);
         }
@@ -136,16 +140,12 @@ function getCode(code){
 }
 
 
-
-
-
-
 // Passport
 router.use(passport.initialize());
 router.use(passport.session());
 
 router.get('/success', (req, res) => res.send("AdminPortal.html"));
-router.get('/error', (req, res) => res.send("error logging in"));
+router.get('/error', (req, res) => res.redirect("ErrorLogin.html"));
 
 passport.serializeUser(function(user, cb) {
     cb(null, user.id);
