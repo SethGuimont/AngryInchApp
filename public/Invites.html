@@ -71,31 +71,48 @@
                     <div class="col-sm-6">
                         <h4 class="font-alt">Fill Out Invite Details</h4><br/>
                         <form class="row" action="/events" method="post">
+                            <h4 class="font-alt mb-0">Create a New User</h4>
+                            <hr class="divider-w mt-10 mb-20">
                             <form class="form" role="form">
                                 <div class="form-group">
-                                    <label class="sr-only" for="EventName">Name Of Event</label>
-                                    <input class="form-control" type="text" id="EventName" name="EventName" placeholder="Please enter the event name" required="required" data-validation-required-message="Please enter the events title."/>
-                                    <p class="help-block text-danger"></p>
+                                    <input class="form-control input-lg" name="EventName" type="text" placeholder="Event name"/>
                                 </div>
                                 <div class="form-group">
-                                    <label class="sr-only" for="fourDigitCode">Name Of Event</label>
-                                    <input class="form-control" type="text" id="FourDigitCode" name="fourDigitCode" placeholder="Please enter your four digit code" required="required" data-validation-required-message="Please enter your four digit code."/>
-                                    <p class="help-block text-danger"></p>
+                                    <input class="form-control input-lg" name="fourDigitCode" type="text" placeholder="Your four digit code"/>
                                 </div>
                                 <div class="form-group">
-                                    <label class="sr-only" for="NumberOfInvites">Email</label>
-                                    <input class="form-control" type="text" id="NumberOfInvites" name="NumberOfInvites" placeholder="Please enter the number of guest codes needed" required="required" data-validation-required-message="Please enter your email address."/>
-                                    <p class="help-block text-danger"></p>
+                                    <input class="form-control input-lg" name="NumberOfInvites" type="text" placeholder="Number of guests"/>
                                 </div>
                                 <div class="form-group">
-                                    <textarea class="form-control" rows="7" id="EventDescription" name="EventDescription" placeholder="Describe your event" required="required" data-validation-required-message=""></textarea>
-                                    <p class="help-block text-danger"></p>
+                                    <input class="form-control input-lg" name="inviteBody" type="text" placeholder="Add your invite body"/>
                                 </div>
-                                <div class="text-center">
-                                    <button class="btn btn-block btn-round btn-d" id="cfsubmit" type="submit">Submit</button>
+                                <div class="form-group">
+                                    <button class="btn btn-block btn-round btn-b">Register</button>
                                 </div>
-                            </form>
-                        </form>
+<!--                        <form id="contactForm" role="form" method="post" action="/events">-->
+<!--                            <div class="form-group">-->
+<!--                                <label class="sr-only" for="EventName">Name Of Event</label>-->
+<!--                                <input class="form-control" type="text" id="EventName" name="EventName" placeholder="Please enter the event name" required="required" data-validation-required-message="Please enter the events title."/>-->
+<!--                                <p class="help-block text-danger"></p>-->
+<!--                            </div>-->
+<!--                            <div class="form-group">-->
+<!--                                <label class="sr-only" for="fourDigitCode">Name Of Event</label>-->
+<!--                                <input class="form-control" type="text" id="FourDigitCode" name="fourDigitCode" placeholder="Please enter your four digit code" required="required" data-validation-required-message="Please enter your four digit code."/>-->
+<!--                                <p class="help-block text-danger"></p>-->
+<!--                            </div>-->
+<!--                            <div class="form-group">-->
+<!--                                <label class="sr-only" for="NumberOfInvites">Email</label>-->
+<!--                                <input class="form-control" type="email" id="NumberOfInvites" name="NumberOfInvites" placeholder="Please enter the number of guest codes needed" required="required" data-validation-required-message="Please enter your email address."/>-->
+<!--                                <p class="help-block text-danger"></p>-->
+<!--                            </div>-->
+<!--                            <div class="form-group">-->
+<!--                                <textarea class="form-control" rows="7" id="EventDescription" name="EventDescription" placeholder="Describe your event" required="required" data-validation-required-message=""></textarea>-->
+<!--                                <p class="help-block text-danger"></p>-->
+<!--                            </div>-->
+<!--                            <div class="text-center">-->
+<!--                                <button class="btn btn-block btn-round btn-d" id="cfsubmit" type="submit">Submit</button>-->
+<!--                            </div>-->
+<!--                        </form>-->
                         <div class="ajax-response font-alt" id="contactFormResponse"></div>
                     </div>
                     <div class="col-sm-6">
