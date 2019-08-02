@@ -27,7 +27,34 @@ router.post('/events', function(req, res) {
     console.log(req.body);
     var fourDigitCode = req.body.fourDigitCode;
     var inviteBody = req.body.inviteBody;
-    codeGeneratorService(req.body.NumberOfInvites, fourDigitCode, inviteBody);
+    var codeEmailBody;
+    var codeArray = codeGeneratorService(req.body.NumberOfInvites, fourDigitCode, inviteBody);
+    for (var i = 0; i < codeArray.length; i++){
+        codeEmailBody = codeArray[i] + '\n' + codeEmailBody;
+    }
+    var userEmail = getUser(fourDigitCode);
+    userEmail.exec(function (err, user) {
+        if(err || code.redeemed === true){
+            res.redirect('ErrorCode.html');
+            return console.log(err);
+        }
+        var mailOptions = {
+            from: 'blueskygroupcapstone@hotmail.com',
+            to: User.email,
+            subject: 'Your invited!',
+            text: codeEmailBody
+        };
+        emailService.sendMail(mailOptions, function(error, info){
+            if (error) {
+                console.log(error);
+                res.render('ErrorCode')
+            } else {
+                console.log('Email sent: ' + info.response);
+                res.render('Codes')
+            }
+        });
+    });
+
     return res.redirect('AdminPortal.html')
 });
 
@@ -97,7 +124,10 @@ router.post('/support', function(req, res){
 
 
 
-
+function getUser(fourDigitCode){
+    var query = User.findOne({fourDigitCode: fourDigitCode});
+    return query;
+}
 
 
 function getCode(code){
