@@ -13,4 +13,4 @@ exports.saveUser = function (username, password, email, fourDigitCode) {
     });
 
     console.log("got here");
-}
+};
