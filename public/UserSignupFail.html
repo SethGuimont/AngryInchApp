@@ -4,15 +4,36 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!--
+    <!--  
     Document Title
     =============================================
     -->
-    <title>Developer/Super Admin User page</title>
-
-    <!---Stylesheets
+    <title>Code List</title>
+    <!--  
+    Favicons
     =============================================
-
+    -->
+    <link rel="apple-touch-icon" sizes="57x57" href="assets/images/favicons/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="assets/images/favicons/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="assets/images/favicons/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="assets/images/favicons/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="assets/images/favicons/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="assets/images/favicons/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="assets/images/favicons/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="assets/images/favicons/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicons/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="assets/images/favicons/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="assets/images/favicons/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicons/favicon-16x16.png">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="assets/images/favicons/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+    <!--  
+    Stylesheets
+    =============================================
+    
     -->
     <!-- Default stylesheets-->
     <link href="assets/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -40,71 +61,46 @@
       <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
         <div class="container">
           <div class="navbar-header">
-            <span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a class="navbar-brand" href="index.html">The Blue Sky Group</a>
+            <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#custom-collapse"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a class="navbar-brand" href="index.html">The Blue Sky Group</a>
           </div>
           <div class="collapse navbar-collapse" id="custom-collapse">
             <ul class="nav navbar-nav navbar-right">
-              <li><a href="index.html">Home</a></li>
-              <li><a href="Admin.html">Login</a></li>
-              <li><a href="About.html">About</a></li>
+              <li class="dropdown"><a href="index.html">Home</a></li>
+              <li class="dropdown"><a href="Admin.html">Admin</a></li>
+              <li class="dropdown"><a href="About.html">About</a></li>
             </ul>
           </div>
         </div>
       </nav>
-      <section class="bg-dark-30 showcase-page-header module parallax-bg" data-background="assets/images/balloons.jpg">
-        <div class="titan-caption">
-          <div class="caption-content">
-            <div class="font-alt mb-30 titan-title-size-1">Style, Class, Fun</div>
-            <div class="font-alt mb-40 titan-title-size-4">Party Code Generator</div>
-          </div>
-        </div>
-      </section>
-      <div class="main showcase-page">
-        <section class="module-extra-small bg-dark">
+      <div class="main">
+        <section class="module bg-dark-30 about-page-header" data-background="assets/images/glasses.jpg">
           <div class="container">
             <div class="row">
-              <div class="col-sm-6 col-md-8 col-lg-9">
-                  <div class="callout-text font-alt"></div>
-
-              </div>
-              <div class="col-sm-6 col-md-4 col-lg-3">
-
+              <div class="col-sm-6 col-sm-offset-3">
+                <h1 class="module-title font-alt mb-0">Codes</h1>
               </div>
             </div>
           </div>
         </section>
         <section class="module">
           <div class="container">
-            <form class="row" action="/users" method="post">
-                <h4 class="font-alt mb-0">Create a New User</h4>
+            <div class="row">
+              <div class="col-sm-8 col-sm-offset-2">
+                <h4 class="font-alt mb-0">Alerts</h4>
                 <hr class="divider-w mt-10 mb-20">
-                <form class="form" role="form">
-                    <div class="form-group">
-                        <input class="form-control input-lg" name="username" type="text" placeholder="Add User"/>
-                    </div>
-                    <div class="form-group">
-                        <input class="form-control input-lg" name="email" type="text" placeholder="Add User Email Address"/>
-                    </div>
-                    <div class="form-group">
-                        <input class="form-control input-lg" name="password" type="text" placeholder="Create User Password "/>
-                    </div>
-                    <div class="form-group">
-                        <input class="form-control input-lg" name="confirmPW" type="text" placeholder="Confirm Password"/>
-                    </div>
-                    <div class="form-group">
-                        <input class="form-control input-lg" name="fourDigitCode" type="text" placeholder="User Company Or Company Code"/>
-                    </div>
-                  <div class="form-group">
-                    <button class="btn btn-block btn-round btn-b">Register</button>
-                  </div>
-
-                </form>
-            </form>
+                <div class="alert alert-warning" role="alert"><strong>Alert!</strong> Some of your information be incorrect or you already exist in the system</div>
+              </div>
           </div>
-        </section>
+            <div class="form-group" style="text-align: center">
+              <a href="Users.html">
+                <button class="btn btn-round btn-b"/>Back to Sign up</button>
+              </a>
             </div>
           </div>
-    <hr class="divider-d">
+        </section>
+       
+            
+   <hr class="divider-d">
         <footer class="footer bg-dark">
           <div class="container">
             <div class="row">
@@ -121,7 +117,7 @@
       </div>
       <div class="scroll-up"><a href="#totop"><i class="fa fa-angle-double-up"></i></a></div>
     </main>
-    <!--
+    <!--  
     JavaScripts
     =============================================
     -->

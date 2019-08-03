@@ -14,13 +14,18 @@ router.post('/users', function(req, res) {
     var password = req.body.password;
     var email = req.body.email;
     var fourDigitCode = req.body.fourDigitCode;
+    var confirmPW = req.body.confirmPW;
+
+    if(password != confirmPW){
+        return res.redirect('UserSignupFail.html');
+    }
 
     const newUser = User({username: username, password: password, email: email, fourDigitCode: fourDigitCode});
     newUser.save(function (err, newUser){
         if(err) return console.error(err);
     });
 
-    return res.redirect('users.html')
+    return res.redirect('UserSignupPass.html')
 });
 
 router.post('/events', function(req, res) {
@@ -56,7 +61,7 @@ router.post('/events', function(req, res) {
         });
     });
 
-    return res.redirect('AdminPortal.html')
+    return res.redirect('Codes.html')
 });
 
 router.post('/index', function(req, res){
@@ -104,7 +109,7 @@ router.post('/support', function(req, res){
     console.log(req.body);
     userEmail = req.body.SupportEmail;
     eventName = req.body.EventName;
-    userText = userEmail + "                " + eventName + "                " + req.body.IssueBody;
+    userText = userEmail + "\n" + eventName + "\n" + req.body.IssueBody;
 
 
     var mailOptions = {
