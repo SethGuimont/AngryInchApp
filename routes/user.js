@@ -3,6 +3,7 @@ var router = express.Router();
 var mongoose = require('mongoose');
 var User = require('../models/Users');
 var Code = require('../models/Codes');
+const bcrypt = require('bcryptjs');
 var emailService = require('../services/mailerService');
 var codeGeneratorService = require('../services/CodeGeneratorService');
 var passport = require('passport');
@@ -20,12 +21,19 @@ router.post('/users', function(req, res) {
         return res.redirect('UserSignupFail.html');
     }
 
-    const newUser = User({username: username, password: password, email: email, fourDigitCode: fourDigitCode});
-    newUser.save(function (err, newUser){
-        if(err) return console.error(err);
-    });
+    var newUser = User({username: username, password: password, email: email, fourDigitCode: fourDigitCode});
 
-    return res.redirect('UserSignupPass.html')
+    bcrypt.genSalt(10, (err, salt) => {
+        bcrypt.hash(newUser.password, salt, (err, hash) => {
+            if(err) throw err;
+            newUser.password = hash;
+
+            newUser.save(function (err, newUser){
+                if(err) return console.error(err);
+            });
+            return res.redirect('UserSignupPass.html')
+        })
+    });
 });
 
 router.post('/events', function(req, res) {
@@ -175,10 +183,14 @@ passport.use(new LocalStrategy(
                 return done(null, false);
             }
 
-            if (user.password != password) {
-                return done(null, false);
-            }
-            return done(null, user);
+            bcrypt.compare(password, user.password, (err, isMatch) => {
+                if (err) throw err;
+                if (isMatch) {
+                    return done(null, user);
+                } else {
+                    return done(null, false)
+                }
+            });
         });
     }
 ));
