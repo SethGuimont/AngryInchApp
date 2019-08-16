@@ -17,7 +17,25 @@ router.post('/users', function(req, res) {
     var fourDigitCode = req.body.fourDigitCode;
     var confirmPW = req.body.confirmPW;
 
+    var regex = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*\W)/;
+    var userFound = false;
+    var waitForResults = true;
+
+    var badBool = regex.test(password);
+    console.log(badBool);
+    if(!badBool){
+        return res.redirect('UserSignupFail.html');
+    }
+
+    if(!username || !email || !password || !fourDigitCode || !confirmPW){
+        return res.redirect('UserSignupFail.html');
+    }
+
     if(password != confirmPW){
+        return res.redirect('UserSignupFail.html');
+    }
+
+    if(password.length < 6){
         return res.redirect('UserSignupFail.html');
     }
 
