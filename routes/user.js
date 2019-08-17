@@ -18,8 +18,6 @@ router.post('/users', function(req, res) {
     var confirmPW = req.body.confirmPW;
 
     var regex = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*\W)/;
-    var userFound = false;
-    var waitForResults = true;
 
     var badBool = regex.test(password);
     console.log(badBool);
@@ -31,7 +29,7 @@ router.post('/users', function(req, res) {
         return res.redirect('UserSignupFail.html');
     }
 
-    if(password != confirmPW){
+    if(password !== confirmPW){
         return res.redirect('UserSignupFail.html');
     }
 
@@ -57,6 +55,15 @@ router.post('/users', function(req, res) {
 router.post('/events', function(req, res) {
     console.log(req.body);
     var fourDigitCode = req.body.fourDigitCode;
+    if(fourDigitCode.length !== 4){
+        res.redirect('ErrorCode.html');
+    }
+    var regex = /^[0-9]+$/;
+    var badBool = regex.test(fourDigitCode);
+    if(!badBool){
+        res.redirect('ErrorCode.html');
+    }
+
     var inviteBody = req.body.inviteBody;
     var codeEmailBody = '';
     var eventName = req.body.EventName;
